@@ -16,7 +16,7 @@ class Fix:
         login_string += self.field_98_encrypt_method()
         login_string += self.field_108_heart_bt_int()
         login_string += self.field_141_reset_seq_num_flag()
-        login_string = self.field_9_body_length(msg=login_string) + login_string
+        login_string = self.field_9_body_length(login_string) + login_string
         login_string = self.field_8_begin_string() + login_string
 
         login_string += self.field_10_check_sum(login_string)
@@ -70,9 +70,3 @@ class Fix:
 
     def field_141_reset_seq_num_flag(self):
         return "141=Y|"
-
-    def field_9_body_length(self):
-        return "9=???????????????????????????|"
-
-    def field_9_body_length(self):
-        return "9=???????????????????????????|"
