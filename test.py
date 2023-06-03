@@ -10,3 +10,7 @@ print(type(var))
 
 exe = var[:4] + var[5:7] + var[8:10] + '-' + var[11:]
 print(exe)
+
+
+gege = "c"
+print(int(gege[0]))

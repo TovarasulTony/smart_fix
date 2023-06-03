@@ -1,15 +1,10 @@
-import calendar
+import datetime
 
 
 
 class Fix:
     def __init__(self):
-        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.IP_address = config.WebServer_IP_address
-        self.Port = config.WebServer_Port
-        self.socket.connect((self.IP_address, self.Port))
-        start_new_thread(self.listen_thread, ())
+        self.seqNo = 0
 
     def field_8_begin_string(self):
         return "8=FIX4.4|"
@@ -21,7 +16,8 @@ class Fix:
         return "9=???????????????????????????|"
 
     def field_34_msg_seq_num(self):
-        return "9=???????????????????????????|"
+        self.seqNo += 1
+        return "34=" + str(self.seqNo) + "|"
 
     def field_35_msg_type(self):
         return "35=A|"
@@ -30,7 +26,12 @@ class Fix:
         return "49=LME|"
 
     def field_52_sending_time(self):
-        return "9=???????????????????????????|"
+        ret = "52="
+        var = datetime.datetime.now()
+        var = str(var)
+        ret += var[:4] + var[5:7] + var[8:10] + '-' + var[11:]
+        ret += "|"
+        return ret
 
     def field_56_target_comp_id(self):
         return "56=SNCFIXRTGENA|"
