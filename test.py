@@ -8,6 +8,6 @@ def dt2ts():
 
     """
 
-    return calendar.timegm(datetime.utctimetuple())
+    return calendar.timegm(datetime.now().utctimetuple())
 
 print(dt2ts())
