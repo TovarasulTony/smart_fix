@@ -1,13 +1,7 @@
-import calendar
+
 import datetime
 
-def dt2ts():
-    """Converts a datetime object to UTC timestamp
+var = datetime.datetime.now()
 
-    naive datetime will be considered UTC.
-
-    """
-
-    return calendar.timegm(datetime.datetime.utctimetuple())
-
-print(dt2ts())
+print(var)
+print(typeof(var))
