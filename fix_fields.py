@@ -18,8 +18,9 @@ class Fix:
         login_string += self.field_141_reset_seq_num_flag()
         login_string = self.field_9_body_length(login_string) + login_string
         login_string = self.field_8_begin_string() + login_string
-
+        login_string = login_string.replace("|", "\x01")
         login_string += self.field_10_check_sum(login_string)
+        login_string = login_string.replace("|", "\x01")
         return login_string
 
     def field_8_begin_string(self):

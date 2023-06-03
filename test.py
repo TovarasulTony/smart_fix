@@ -1,4 +1,7 @@
 from fix_fields import Fix
 
 app = Fix()
-print(app.make_login())
+msg = app.make_login()
+msg = msg.replace("\x01", "|")
+print(msg)
+
