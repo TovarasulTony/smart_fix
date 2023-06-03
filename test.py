@@ -1,7 +1,5 @@
-from fix_fields import Fix
+from fix_fields import server
 
-app = Fix()
-msg = app.make_login()
-msg = msg.replace("\x01", "|")
-print(msg[:-5])
+app = ServerCommunication()
+app.listen_thread()
 

@@ -23,6 +23,19 @@ class Fix:
         login_string = login_string.replace("|", "\x01")
         return login_string
 
+    def make_msg(self, msg):
+        login_string = ""
+        login_string += msg[x:x]
+        login_string += self.field_34_msg_seq_num()
+        login_string += self.field_52_sending_time()
+        login_string += msg[x:x]
+        login_string = self.field_9_body_length(login_string) + login_string
+        login_string = self.field_8_begin_string() + login_string
+        login_string = login_string.replace("|", "\x01")
+        login_string += self.field_10_check_sum(login_string)
+        login_string = login_string.replace("|", "\x01")
+        return login_string
+
     def field_8_begin_string(self):
         return "8=FIX.4.4|"
 
