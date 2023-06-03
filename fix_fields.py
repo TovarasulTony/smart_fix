@@ -26,7 +26,7 @@ class Fix:
         return "8=FIX4.4|"
 
     def field_9_body_length(self, msg):
-        return "9=" + len(msg) + "|"
+        return "9=" + str(len(msg)) + "|"
 
     def field_10_check_sum(self, msg):
         cks = 0
