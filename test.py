@@ -13,4 +13,4 @@ print(exe)
 
 
 gege = "c"
-print(int(gege[0]))
+print(ord(gege[0]))
