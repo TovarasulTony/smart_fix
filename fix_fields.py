@@ -26,7 +26,7 @@ class Fix:
         return "8=FIX4.4|"
 
     def field_9_body_length(self, msg):
-        return "9=" + size(msg) + "|"
+        return "9=" + len(msg) + "|"
 
     def field_10_check_sum(self, msg):
         cks = 0
@@ -35,7 +35,7 @@ class Fix:
             cks += ord(x)
         cks %= 256
         ret = str(cks)
-        for x in range(1, 4-size(ret)):
+        for x in range(1, 4-len(ret)):
             ret = "0" + ret
 
 
