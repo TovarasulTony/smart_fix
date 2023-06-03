@@ -20,6 +20,7 @@ class Fix:
         login_string = self.field_8_begin_string() + login_string
 
         login_string += self.field_10_check_sum(login_string)
+        return login_string
 
     def field_8_begin_string(self):
         return "8=FIX4.4|"
@@ -33,10 +34,12 @@ class Fix:
         for x in msg:
             cks += ord(x)
         cks %= 256
+        ret = str(cks)
+        for x in range(1, 4-size(ret)):
+            ret = "0" + ret
 
-        sprintf( tmpBuf, "%03d", (unsigned int)( cks % 256 ) );
-        return( tmpBuf );
-        return "9=???????????????????????????|"
+
+        return "10=" + ret + "|"
 
     def field_34_msg_seq_num(self):
         self.seqNo += 1

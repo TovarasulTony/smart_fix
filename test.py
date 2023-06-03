@@ -1,20 +1,4 @@
+from fix_fields import Fix
 
-import datetime
-
-var = datetime.datetime.now()
-var = str(var)
-
-print("-------------")
-print(var)
-print(type(var))
-
-exe = var[:4] + var[5:7] + var[8:10] + '-' + var[11:]
-print(exe)
-
-
-gege = "c"
-print(ord(gege[0]))
-print(str(ord(gege[0])))
-
-for x in range(0, 2):
-    print(x)
+app = Fix()
+print(app.make_login())
