@@ -1,4 +1,4 @@
-from fix_fields import server
+from server import ServerCommunication
 
 app = ServerCommunication()
 app.listen_thread()
