@@ -16,7 +16,8 @@ class Fix:
         login_string += self.field_98_encrypt_method()
         login_string += self.field_108_heart_bt_int()
         login_string += self.field_141_reset_seq_num_flag()
-        login_string = self.field_9_body_length(login_string) + login_string
+        body_len = self.field_9_body_length(login_string)
+        login_string = body_len + login_string
         login_string = self.field_8_begin_string() + login_string
 
         login_string += self.field_10_check_sum(login_string)
