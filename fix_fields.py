@@ -33,7 +33,7 @@ class Fix:
         cks = 0
     
         for x in msg:
-            cks += ord(x)
+            cks += ord(x)+2**32
         cks %= 256
         ret = str(cks)
         for x in range(1, 4-len(ret)):
