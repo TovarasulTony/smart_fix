@@ -6,13 +6,36 @@ class Fix:
     def __init__(self):
         self.seqNo = 0
 
+    def make_login(self):
+        login_string = ""
+        login_string += self.field_35_msg_type()
+        login_string += self.field_34_msg_seq_num()
+        login_string += self.field_49_sender_comp_id()
+        login_string += self.field_52_sending_time()
+        login_string += self.field_56_target_comp_id()
+        login_string += self.field_98_encrypt_method()
+        login_string += self.field_108_heart_bt_int()
+        login_string += self.field_141_reset_seq_num_flag()
+        login_string = self.field_9_body_length(login_string) + login_string
+        login_string = self.field_8_begin_string() + login_string
+
+        login_string += self.field_10_check_sum(login_string)
+
     def field_8_begin_string(self):
         return "8=FIX4.4|"
 
-    def field_9_body_length(self):
-        return "9=???????????????????????????|"
+    def field_9_body_length(self, msg):
+        return "9=" + size(msg) + "|"
 
-    def field_10_check_sum(self):
+    def field_10_check_sum(self, msg):
+        cks = 0
+    
+        for x in msg:
+            cks += ord(x)
+        cks %= 256
+
+        sprintf( tmpBuf, "%03d", (unsigned int)( cks % 256 ) );
+        return( tmpBuf );
         return "9=???????????????????????????|"
 
     def field_34_msg_seq_num(self):
