@@ -8,5 +8,5 @@ print("-------------")
 print(var)
 print(type(var))
 
-exe = var[:3] + var[5:6] + var[8:9] + '-' + var[10:]
+exe = var[:4] + var[5:7] + var[8:10] + '-' + var[10:]
 print(exe)
