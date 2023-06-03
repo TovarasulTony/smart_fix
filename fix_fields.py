@@ -24,7 +24,7 @@ class Fix:
         return login_string
 
     def field_8_begin_string(self):
-        return "8=FIX4.4|"
+        return "8=FIX.4.4|"
 
     def field_9_body_length(self, msg):
         return "9=" + str(len(msg)) + "|"
@@ -33,7 +33,7 @@ class Fix:
         cks = 0
     
         for x in msg:
-            cks += ord(x)+2**32
+            cks += ord(x) #+2**32
         cks %= 256
         ret = str(cks)
         for x in range(1, 4-len(ret)):
